@@ -1,9 +1,29 @@
-'use strict';
+'use strict'
 
 // Complete this algo
 const binarySearch = (array, target) => {
-	
-};
+  const mid = Math.ceil(array.length / 2)
+  if (array.length === 1) {
+    if (array[0] === target) {
+      return true
+    } else {
+      return false
+    }
+  } else {
+    const root = array[mid]
+    const frontHalf = array.slice(0, mid)
+    const backHalf = array.slice(mid)
+
+    if (target < root) {
+      return binarySearch(frontHalf, target)
+    }
+    if (target >= root) {
+      return binarySearch(backHalf, target)
+    } else {
+      return false
+    }
+  }
+}
 
 /*
 	EXTRA CREDIT:
